@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛡️ FraudShield AI
 
 **A credit-card fraud detector for the browser.** From a landing screen, upload a transaction
@@ -417,3 +418,6 @@ anonymised transactions by European cardholders from September 2013.
 
 Released for educational purposes. The bundled code is provided as-is; the dataset remains
 subject to its own license terms (see attribution above).
+=======
+# creditcard_fraud
+>>>>>>> 283ad73bf36095dbe1f8fe95ce75c761a089b260
