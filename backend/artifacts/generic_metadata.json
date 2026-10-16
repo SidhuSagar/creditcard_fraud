@@ -1,0 +1,17 @@
+{
+  "trained_on": "C:\\Users\\Dell\\Desktop\\CREDITCARD_FRAUD\\transactions.csv",
+  "rows": 294588,
+  "features": [
+    "log_amount",
+    "hour",
+    "dow"
+  ],
+  "impute": {
+    "hour": 0.0,
+    "dow": 0.0
+  },
+  "contamination": "auto",
+  "random_state": 42,
+  "version": "1.0.0",
+  "note": "Unsupervised anomaly detector for amount/date; not a validated fraud model."
+}

@@ -1,0 +1,25 @@
+# FraudShield AI - Backend & Machine Learning dependencies
+# Versions pinned to the versions verified on the development machine
+# (Python 3.12.6, Windows). See README.md for install instructions.
+
+# --- API layer ---
+fastapi==0.115.13
+uvicorn==0.34.0
+pydantic==2.12.5
+python-multipart==0.0.21
+
+# --- Data / numeric ---
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.14.1
+pyarrow==19.0.0
+
+# --- Machine learning ---
+scikit-learn==1.5.0
+xgboost==3.0.5
+imbalanced-learn==0.12.4
+joblib==1.3.2
+
+# --- Testing ---
+pytest==8.3.3
+httpx==0.28.1

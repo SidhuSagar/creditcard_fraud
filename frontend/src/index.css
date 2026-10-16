@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-black text-zinc-100 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-white ring-offset-2 ring-offset-black;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-zinc-900 bg-zinc-950;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium
+           transition-colors disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-white text-black hover:bg-zinc-200;
+  }
+
+  .btn-ghost {
+    @apply btn border border-zinc-800 bg-transparent text-zinc-300 hover:bg-zinc-900 hover:text-white;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-zinc-800 bg-black px-3 py-2 text-sm text-zinc-100
+           placeholder:text-zinc-600 focus:border-zinc-500 focus:outline-none;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wide text-zinc-500;
+  }
+
+  .th {
+    @apply whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-zinc-500;
+  }
+
+  .td {
+    @apply whitespace-nowrap px-4 py-3 text-sm text-zinc-300;
+  }
+}
+
+/* Slim scrollbars inside data panels */
+.scroll-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgb(63 63 70 / 0.6);
+  border-radius: 9999px;
+}

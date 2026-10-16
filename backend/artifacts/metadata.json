@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-14T06:15:05.249806+00:00",
+  "quick_mode": false,
+  "dataset": {
+    "rows": 284807,
+    "fraud": 492,
+    "legitimate": 284315,
+    "fraud_rate": 0.00172749,
+    "duplicate_rows": 1081,
+    "time_range_seconds": [
+      0.0,
+      172792.0
+    ],
+    "amount_stats": {
+      "min": 0.0,
+      "max": 25691.16,
+      "mean": 88.3496,
+      "fraud_mean": 122.2113,
+      "legit_mean": 88.291
+    },
+    "path": "C:\\Users\\Dell\\Desktop\\CREDITCARD_FRAUD\\data\\creditcard.csv",
+    "size_bytes": 150828752,
+    "sha256": "76274b691b16a6c49d3f159c883398e03ccd6d1ee12d9d8ee38f4b4b98551a89"
+  },
+  "dataset_columns": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount",
+    "Class"
+  ],
+  "splits": {
+    "strategy": "stratified random split, seed=42",
+    "train": {
+      "rows": 170883,
+      "fraud": 295
+    },
+    "validation": {
+      "rows": 56962,
+      "fraud": 99
+    },
+    "test": {
+      "rows": 56962,
+      "fraud": 98
+    }
+  },
+  "feature_order": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "preprocessing": {
+    "scaled_features": [
+      "Time",
+      "Amount"
+    ],
+    "passthrough_features": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11",
+      "V12",
+      "V13",
+      "V14",
+      "V15",
+      "V16",
+      "V17",
+      "V18",
+      "V19",
+      "V20",
+      "V21",
+      "V22",
+      "V23",
+      "V24",
+      "V25",
+      "V26",
+      "V27",
+      "V28"
+    ],
+    "fitted_on": "training split only",
+    "resampling": "SMOTE (training fold only) for Random Forest; scale_pos_weight for XGBoost; none for Isolation Forest"
+  },
+  "selection_objective": "Validation-set F2 (beta=2, recall-weighted). Test metrics are reported for the chosen threshold and are never used to select the threshold or the recommended model.",
+  "models": {
+    "random_forest": {
+      "display_name": "Random Forest",
+      "family": "supervised",
+      "score_type": "probability",
+      "description": "Ensemble of decision trees (bagging). Class imbalance is handled with SMOTE oversampling of the training fold only.",
+      "artifact": "random_forest.joblib",
+      "trained": true,
+      "hyperparameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 1,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "resampling": {
+        "method": "SMOTE",
+        "sampling_strategy": 0.1,
+        "applied_to": "training fold only",
+        "rows_before": 170883,
+        "rows_after": 187646
+      },
+      "threshold": 0.315,
+      "threshold_objective": "F2 (recall-weighted) maximised on validation set",
+      "validation_metrics": {
+        "precision": 0.776699,
+        "recall": 0.808081,
+        "f1": 0.792079,
+        "pr_auc": 0.823803,
+        "roc_auc": 0.970067,
+        "accuracy": 0.999263,
+        "confusion_matrix": {
+          "true_negative": 56840,
+          "false_positive": 23,
+          "false_negative": 19,
+          "true_positive": 80
+        },
+        "false_positive_rate": 0.000404,
+        "false_negative_rate": 0.191919,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 99,
+          "actual_legitimate": 56863,
+          "predicted_fraud": 103
+        }
+      },
+      "test_metrics": {
+        "precision": 0.73913,
+        "recall": 0.867347,
+        "f1": 0.798122,
+        "pr_auc": 0.863845,
+        "roc_auc": 0.977472,
+        "accuracy": 0.999245,
+        "confusion_matrix": {
+          "true_negative": 56834,
+          "false_positive": 30,
+          "false_negative": 13,
+          "true_positive": 85
+        },
+        "false_positive_rate": 0.000528,
+        "false_negative_rate": 0.132653,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 98,
+          "actual_legitimate": 56864,
+          "predicted_fraud": 115
+        }
+      },
+      "training_seconds": 27.33
+    },
+    "xgboost": {
+      "display_name": "XGBoost",
+      "family": "supervised",
+      "score_type": "probability",
+      "description": "Gradient-boosted decision trees with early stopping on the validation set; imbalance handled with scale_pos_weight.",
+      "artifact": "xgboost.joblib",
+      "trained": true,
+      "hyperparameters": {
+        "objective": "binary:logistic",
+        "base_score": null,
+        "booster": null,
+        "callbacks": null,
+        "colsample_bylevel": null,
+        "colsample_bynode": null,
+        "colsample_bytree": 0.8,
+        "device": null,
+        "early_stopping_rounds": 40,
+        "enable_categorical": false,
+        "eval_metric": "aucpr",
+        "feature_types": null,
+        "feature_weights": null,
+        "gamma": 0.0,
+        "grow_policy": null,
+        "importance_type": null,
+        "interaction_constraints": null,
+        "learning_rate": 0.08,
+        "max_bin": null,
+        "max_cat_threshold": null,
+        "max_cat_to_onehot": null,
+        "max_delta_step": null,
+        "max_depth": 5,
+        "max_leaves": null,
+        "min_child_weight": 1,
+        "missing": NaN,
+        "monotone_constraints": null,
+        "multi_strategy": null,
+        "n_estimators": 400,
+        "n_jobs": -1,
+        "num_parallel_tree": null,
+        "random_state": 42,
+        "reg_alpha": null,
+        "reg_lambda": 1.0,
+        "sampling_method": null,
+        "scale_pos_weight": 578.264406779661,
+        "subsample": 0.8,
+        "tree_method": "hist",
+        "validate_parameters": null,
+        "verbosity": null
+      },
+      "early_stopping": {
+        "rounds": 40,
+        "eval_metric": "aucpr",
+        "best_iteration": 381,
+        "evaluated_on": "validation split"
+      },
+      "resampling": {
+        "method": "scale_pos_weight",
+        "value": 578.2644,
+        "applied_to": "training fold only"
+      },
+      "threshold": 0.21155192,
+      "threshold_objective": "F2 (recall-weighted) maximised on validation set",
+      "validation_metrics": {
+        "precision": 0.877778,
+        "recall": 0.79798,
+        "f1": 0.835979,
+        "pr_auc": 0.828896,
+        "roc_auc": 0.971329,
+        "accuracy": 0.999456,
+        "confusion_matrix": {
+          "true_negative": 56852,
+          "false_positive": 11,
+          "false_negative": 20,
+          "true_positive": 79
+        },
+        "false_positive_rate": 0.000193,
+        "false_negative_rate": 0.20202,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 99,
+          "actual_legitimate": 56863,
+          "predicted_fraud": 90
+        }
+      },
+      "test_metrics": {
+        "precision": 0.846939,
+        "recall": 0.846939,
+        "f1": 0.846939,
+        "pr_auc": 0.87034,
+        "roc_auc": 0.979228,
+        "accuracy": 0.999473,
+        "confusion_matrix": {
+          "true_negative": 56849,
+          "false_positive": 15,
+          "false_negative": 15,
+          "true_positive": 83
+        },
+        "false_positive_rate": 0.000264,
+        "false_negative_rate": 0.153061,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 98,
+          "actual_legitimate": 56864,
+          "predicted_fraud": 98
+        }
+      },
+      "training_seconds": 7.2
+    },
+    "isolation_forest": {
+      "display_name": "Isolation Forest",
+      "family": "unsupervised",
+      "score_type": "anomaly_score",
+      "description": "Unsupervised anomaly detector. Produces an anomaly score, not a calibrated probability; the score is thresholded on validation data.",
+      "artifact": "isolation_forest.joblib",
+      "trained": true,
+      "hyperparameters": {
+        "bootstrap": false,
+        "contamination": "auto",
+        "max_features": 1.0,
+        "max_samples": "auto",
+        "n_estimators": 200,
+        "n_jobs": -1,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "score_definition": "-score_samples(X); higher = more anomalous. NOT a probability.",
+      "threshold": 0.5854316,
+      "threshold_objective": "F2 (recall-weighted) maximised on validation set",
+      "validation_metrics": {
+        "precision": 0.100806,
+        "recall": 0.505051,
+        "f1": 0.168067,
+        "pr_auc": 0.115826,
+        "roc_auc": 0.940803,
+        "accuracy": 0.99131,
+        "confusion_matrix": {
+          "true_negative": 56417,
+          "false_positive": 446,
+          "false_negative": 49,
+          "true_positive": 50
+        },
+        "false_positive_rate": 0.007843,
+        "false_negative_rate": 0.494949,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 99,
+          "actual_legitimate": 56863,
+          "predicted_fraud": 496
+        }
+      },
+      "test_metrics": {
+        "precision": 0.113027,
+        "recall": 0.602041,
+        "f1": 0.190323,
+        "pr_auc": 0.17987,
+        "roc_auc": 0.953345,
+        "accuracy": 0.991187,
+        "confusion_matrix": {
+          "true_negative": 56401,
+          "false_positive": 463,
+          "false_negative": 39,
+          "true_positive": 59
+        },
+        "false_positive_rate": 0.008142,
+        "false_negative_rate": 0.397959,
+        "support": {
+          "total": 56962,
+          "actual_fraud": 98,
+          "actual_legitimate": 56864,
+          "predicted_fraud": 522
+        }
+      },
+      "training_seconds": 2.33
+    }
+  },
+  "recommended_model": "xgboost",
+  "recommended_reason": "Highest validation F2 (0.8128); recall is prioritised while precision and false positives are monitored.",
+  "training_seconds_total": 40.58
+}

@@ -1,0 +1,55 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---------- Node / Frontend ----------
+node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ---------- Local database ----------
+*.db
+*.sqlite
+*.sqlite3
+
+# ---------- Model artifacts ----------
+# Trained binaries are large; the repository ships the training code that
+# regenerates them. Metadata/metrics JSON are kept so the app can show a
+# clear "not trained" state instead of fabricated numbers.
+backend/artifacts/*.joblib
+backend/artifacts/*.ubj
+backend/artifacts/*.parquet
+backend/artifacts/*.npz
+backend/artifacts/*.log
+backend/artifacts/training_log.txt
+
+# ---------- Dataset ----------
+# The Kaggle dataset is ~150 MB and must not be committed.
+data/*.csv
+data/*.zip
+
+# ---------- Secrets / environment ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---------- Editors / OS ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
